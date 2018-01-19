@@ -1,0 +1,27 @@
+ext{
+    android =[
+            compileSdkVersion      : 26,
+            buildToolsVersion      : "26.1.0",
+            applicationId          : "com.xueyi.yang.kotlinandroid",
+            minSdkVersion          : 19,
+            targetSdkVersion       : 26,
+            versionCode            : 1,
+            versionName            : "1.0"
+    ]
+    dependVersion = [
+            support: "26.1.0"
+    ]
+
+
+    dependencies = [
+            //android-support
+            "support-v4"            : "com.android.support:support-v4:${dependVersion.support}",
+            "appcompat-v7"          : "com.android.support:appcompat-v7:${dependVersion.support}",
+
+            //rxjava
+            "rxjava"                : "io.reactivex.rxjava2:rxjava:2.0.6",
+            "rxandroid"             : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            "rxkotlin"              : "io.reactivex.rxjava2:rxkotlin:2.1.0",
+    ]
+
+}
