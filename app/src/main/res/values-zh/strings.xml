@@ -4,6 +4,26 @@
     <string name="reseting">重新设置</string>
     <string name="cancel">取消</string>
     <string name="entry">立即体验</string>
+    <string name="Appbar_name">玩Android</string>
+    <string name="title_home">首页</string>
+    <string name="title_knowledge">知识体系</string>
+    <string name="logout">退出登录</string>
+    <string name="my_lick">收藏</string>
+    <string name="about_us">关于我们</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="not_login">未登录</string>
+    <string name="please_login">点击登录</string>
+    <string name="out_login">退出登录</string>
+
+    <string name="hot_title">Hot</string>
+    <string name="search_title">搜索</string>
+    <string name="writer_name">作者</string>
+    <string name="start">android kotlin</string>
+
+    <string name="double_click_exit">再按一次退出</string>
+
+
 
 
 </resources>

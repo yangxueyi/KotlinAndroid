@@ -1,5 +1,6 @@
 package com.xueyi.yang.kotlinandroid.base
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.os.Build
@@ -8,7 +9,8 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.view.View
+import android.view.inputmethod.InputMethodManager
+import com.gyf.barlibrary.ImmersionBar
 import com.xueyi.yang.kotlinandroid.R
 import com.xueyi.yang.kotlinandroid.base.contract.BaseContract
 
@@ -18,29 +20,54 @@ import com.xueyi.yang.kotlinandroid.base.contract.BaseContract
  */
 abstract class BaseActivity : AppCompatActivity(), BaseContract.BaseView {
 
-
+    protected lateinit var immersionBar :ImmersionBar
     /*code值*/
     protected  val PERMISSIONS_REQUEST_CODE : Int = 254
+
+    private val imm: InputMethodManager by lazy {
+        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         initLayout(savedInstanceState)
 
+        initImmersionBar()
         init()
-        initListener()
         initAdapter()
 
+    }
+    //在BaseActivity里初始化状态栏与导航栏
+    open protected fun initImmersionBar() {
+        immersionBar = ImmersionBar.with(this)
+        immersionBar.init()
     }
 
     /*初始化布局*/
     protected abstract fun initLayout(savedInstanceState: Bundle?)
-    /*初始化监听器*/
-    abstract fun initListener()
-    /*适配器*/
-    abstract fun initAdapter()
     /*初始化*/
     abstract fun init()
+    /*适配器*/
+    abstract fun initAdapter()
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，
+        // 退出此界面再进入将记忆最后一次bar改变的状态
+        immersionBar.destroy()
+    }
+
+    override fun finish() {
+        super.finish()
+        hideSoftKeyBoard()
+    }
+
+    private fun hideSoftKeyBoard() {
+        currentFocus?.let {
+            imm.hideSoftInputFromWindow(it.windowToken, 2)
+        }
+    }
 
     override fun onShowToast(str : String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -110,4 +137,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.BaseView {
                 .setCancelable(false)
                 .show()
     }
+
+
+
 }

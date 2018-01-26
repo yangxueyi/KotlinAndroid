@@ -12,6 +12,7 @@ import com.xueyi.yang.kotlinandroid.R
 import com.xueyi.yang.kotlinandroid.adapter.GuideViewpageAdapter
 import com.xueyi.yang.kotlinandroid.base.BaseActivity
 import com.xueyi.yang.kotlinandroid.constant.Constant
+import com.xueyi.yang.kotlinandroid.module.home.HomeActivity
 import com.xueyi.yang.kotlinandroid.module.welcome.contract.WelcomeContract
 import com.xueyi.yang.kotlinandroid.module.welcome.presenter.WelcomePresenter
 import com.xueyi.yang.kotlinandroid.utils.SpUtils
@@ -74,14 +75,11 @@ class WelcomeActivity :BaseActivity(),WelcomeContract.view{
         initDots()
     }
 
-    override fun initListener() {
-    }
-
     override fun initAdapter() {
     }
 
     override fun onSkipActivity() {
-        startActivity(Intent(this@WelcomeActivity,MainActivity::class.java))
+        startActivity(Intent(this@WelcomeActivity,HomeActivity::class.java))
         isFirstOpen = false
         finish()
     }

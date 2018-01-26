@@ -13,7 +13,11 @@ import kotlin.reflect.KProperty
  */
 class SpUtils <T>(private val name: String, private val default: T): ReadWriteProperty<Any?,T>{
 
-
+    /*
+    *companion object定义的成员类似于Java中的静态成员，
+    * 因为kotlin中没有static成员
+    *
+    */
     companion object {
         lateinit var sp : SharedPreferences
         /**

@@ -25,16 +25,32 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation rootProject.ext.dependencies["appcompat-v7"]
-
     implementation rootProject.ext.dependencies["rxjava"]
     implementation rootProject.ext.dependencies["rxandroid"]
     implementation rootProject.ext.dependencies["rxkotlin"]
+    implementation rootProject.ext.dependencies["desgin"]
+    /*开源库BaseRecyclerViewAdapterHelper*/
+    implementation rootProject.ext.dependencies["adapterHelper"]
+    /*沉浸式状态栏和导航栏实现*/
+    implementation rootProject.ext.dependencies["barlibrary"]
+    implementation rootProject.ext.dependencies["glide"]
+    implementation rootProject.ext.dependencies["pictureSelector"]
+    implementation rootProject.ext.dependencies["glide_transformations"]
+    implementation rootProject.ext.dependencies["retrofit2"]
+    implementation rootProject.ext.dependencies["retrofit_gson"]
+    implementation rootProject.ext.dependencies["okhttp3"]
+    implementation rootProject.ext.dependencies["coroutines"]
+    implementation rootProject.ext.dependencies["coroutines-android"]
+
+
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+
 }

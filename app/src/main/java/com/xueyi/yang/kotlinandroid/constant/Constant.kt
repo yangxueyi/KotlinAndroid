@@ -6,14 +6,40 @@ package com.xueyi.yang.kotlinandroid.constant
  */
 object Constant {
 
+    /**
+     * baseUrl
+     */
+    const val REQUEST_BASE_URL = "http://wanandroid.com/"
+
     /*
     *判断是不是第一次进入程序
     */
     const val FIRST_OPEN = "first_open"
+    /*
+    * 头像剪裁后的地址
+    */
+    const val IMAGE_PATH = "image_path"
+    /**
+     * result null
+     */
+    const val RESULT_NULL = "result null!"
+
+
     /**
      * Share preferences name
      */
     const val SHARED_NAME = "_preferences"
+    /**
+     * Debug
+     */
+    const val INTERCEPTOR_ENABLE = false
+
+    /*
+    * 登录账号
+    */
+    const val LOGIN_KEY = "login"
+    const val USERNAME_KEY = "username"
+    const val PASSWORD_KEY = "password"
     /**
     * 缩放动画
     */
@@ -22,5 +48,7 @@ object Constant {
     const val SCALE_START = 1.0F
     const val SCALE_END = 1.15F
     const val ANIM_TIME = 2000L
+
+    const val MAIN_REQUEST_CODE = 100
 
 }

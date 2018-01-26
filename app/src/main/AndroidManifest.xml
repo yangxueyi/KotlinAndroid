@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/><!--访问电话状态-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/><!--读取sdcard的数据-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/><!--向sdcard写入数据-->
+    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +13,20 @@
         android:name=".base.MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/SplashTheme">
+
+        <!--Android7.0系统。为了保护用户的隐私，获取不到file://URI-->
+        <!--所以需要添加以下权限，访问uri-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.xueyi.yang.kotlinandroid.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
         <!--设置一张图片替代开始时的黑屏或白屏-->
         <activity android:name=".module.splash.SplashActivity"
             android:theme="@style/Theme.beginBackground"
@@ -24,8 +38,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".module.welcome.WelcomeActivity"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".module.welcome.WelcomeActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".module.home.HomeActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".module.login.LoginActivity"
+            android:theme="@style/AppTheme"/>
 
 
 

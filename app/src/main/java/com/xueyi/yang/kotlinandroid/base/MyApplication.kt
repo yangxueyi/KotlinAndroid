@@ -16,4 +16,5 @@ class MyApplication :Application(){
         SpUtils.setContext(applicationContext)
 
     }
+
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_bottom">24dp</dimen>
+    <dimen name="image">24dp</dimen>
+    <dimen name="dot_width">10dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_6">4dp</dimen>
+    <dimen name="dot_margin">15dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>

@@ -17,6 +17,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import android.content.Intent
 import com.xueyi.yang.kotlinandroid.MainActivity
+import com.xueyi.yang.kotlinandroid.module.home.HomeActivity
 import com.xueyi.yang.kotlinandroid.module.welcome.WelcomeActivity
 import com.xueyi.yang.kotlinandroid.utils.SpUtils
 
@@ -49,8 +50,6 @@ class SplashActivity : BaseActivity() {
 
     }
     override fun init() {
-    }
-    override fun initListener() {
     }
     override fun initAdapter() {
     }
@@ -100,7 +99,7 @@ class SplashActivity : BaseActivity() {
             start()
             addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {//动画结束后的监听
-                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
                     finish()
                 }
             })
