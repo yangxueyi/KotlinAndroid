@@ -17,6 +17,7 @@ import com.xueyi.yang.kotlinandroid.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import android.support.v7.widget.AppCompatButton
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -161,11 +162,11 @@ class HomeActivity : BaseActivity(){
         bottom_navigation.run {
             setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
             //初始化是默认显示homeFragment
-            selectedItemId = R.id.navigation_home//
+            selectedItemId = R.id.navigation_home
         }
 
-
     }
+
 
     override fun initAdapter() {
 
@@ -270,6 +271,12 @@ class HomeActivity : BaseActivity(){
                         this.show(it)
                     }
                 }
+                R.id.navigation_knowledge ->{
+                    tool_bar.title = getString(R.string.title_dashboard)
+                    homeFragment?.let {
+                        this.show(it)
+                    }
+                }
             }
         }.commit()
 
@@ -292,6 +299,13 @@ class HomeActivity : BaseActivity(){
                     homeFragment?.smoothScrollToPosition()
                 }
                 currentIndex = R.id.navigation_home
+                true
+            }
+            R.id.navigation_knowledge ->{
+                if (currentIndex == R.id.navigation_knowledge){
+                    homeFragment?.smoothScrollToPosition()
+                }
+                currentIndex = R.id.navigation_knowledge
                 true
             }
             else -> {
