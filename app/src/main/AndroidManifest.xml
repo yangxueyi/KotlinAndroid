@@ -46,6 +46,8 @@
             android:theme="@style/AppTheme"/>
         <activity android:name=".module.login.LoginActivity"
             android:theme="@style/AppTheme"/>
+        <activity android:name=".module.homeContent.HomeContentActivity"
+            android:theme="@style/AppTheme"/>
 
 
 

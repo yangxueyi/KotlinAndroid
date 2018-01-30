@@ -20,5 +20,5 @@ data class HomeDatas(
 		val visible: Int, //1
 		val niceDate: String, //19小时前
 		val courseId: Int, //13
-		val collect: Boolean //false
+		var collect: Boolean //false
 )

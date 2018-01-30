@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt' // kapt 插件
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    compileSdkVersion 26
     defaultConfig {
         applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
@@ -15,6 +15,7 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -37,6 +38,7 @@ dependencies {
     /*沉浸式状态栏和导航栏实现*/
     implementation rootProject.ext.dependencies["barlibrary"]
     implementation rootProject.ext.dependencies["glide"]
+
     implementation rootProject.ext.dependencies["pictureSelector"]
     implementation rootProject.ext.dependencies["glide_transformations"]
     implementation rootProject.ext.dependencies["retrofit2"]
@@ -44,13 +46,13 @@ dependencies {
     implementation rootProject.ext.dependencies["okhttp3"]
     implementation rootProject.ext.dependencies["coroutines"]
     implementation rootProject.ext.dependencies["coroutines-android"]
-
-
-
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-
-
+}
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }

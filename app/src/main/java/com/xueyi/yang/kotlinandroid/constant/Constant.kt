@@ -33,7 +33,27 @@ object Constant {
      * Debug
      */
     const val INTERCEPTOR_ENABLE = false
+    /**
+     * url key
+     */
+    const val CONTENT_URL_KEY = "url"
 
+    /**
+     * title key
+     */
+    const val CONTENT_TITLE_KEY = "title"
+    /**
+     * id key
+     */
+    const val CONTENT_ID_KEY = "id"
+    /**
+     * cid key
+     */
+    const val CONTENT_CID_KEY = "cid"
+    /**
+     * target key
+     */
+    const val CONTENT_TARGET_KEY = "target"
     /*
     * 登录账号
     */

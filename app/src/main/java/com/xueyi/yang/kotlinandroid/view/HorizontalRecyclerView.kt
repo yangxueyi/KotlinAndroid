@@ -25,5 +25,4 @@ class HorizontalRecyclerView : RecyclerView {
         parent.requestDisallowInterceptTouchEvent(true)
         return super.dispatchTouchEvent(ev)
     }
-
 }

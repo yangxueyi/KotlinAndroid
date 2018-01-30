@@ -5,4 +5,5 @@
     android:id="@+id/bannerRecyclerView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:listitem="@layout/banner_item"/>
+    tools:listitem="@layout/banner_item"
+    />

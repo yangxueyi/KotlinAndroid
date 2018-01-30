@@ -26,4 +26,5 @@
         android:layout_alignBottom="@+id/bannerImage"
         android:layout_alignParentEnd="true"
         tools:text="@string/app_name"/>
+
 </RelativeLayout>

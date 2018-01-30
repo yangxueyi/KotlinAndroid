@@ -15,6 +15,13 @@
     <string name="not_login">未登录</string>
     <string name="please_login">点击登录</string>
     <string name="out_login">退出登录</string>
+    <string name="bookmark_success">收藏成功</string>
+    <string name="bookmark_failed">收藏失败：%1$s</string>
+    <string name="bookmark_cancel_success">取消收藏成功</string>
+    <string name="bookmark_cancel_failed">取消收藏失败：%1$s</string>
+
+
+    <string name="empty">这里为空了@####</string>
 
     <string name="hot_title">Hot</string>
     <string name="search_title">搜索</string>
@@ -22,6 +29,11 @@
     <string name="start">android kotlin</string>
 
     <string name="double_click_exit">再按一次退出</string>
+    <string name="get_data_error">获取数据失败</string>
+    <string name="get_data_zero">获取数据为空</string>
+
+    <string name="type_null">类别为空</string>
+
 
 
 

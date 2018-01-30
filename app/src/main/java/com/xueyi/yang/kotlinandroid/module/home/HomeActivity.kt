@@ -24,6 +24,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.entity.LocalMedia
+import com.xueyi.yang.kotlinandroid.R.id.tool_bar
 import com.xueyi.yang.kotlinandroid.constant.Constant
 import com.xueyi.yang.kotlinandroid.fragment.home.HomeFragment
 import com.xueyi.yang.kotlinandroid.module.login.LoginActivity
@@ -43,6 +44,12 @@ class HomeActivity : BaseActivity(){
 //    private var right: LinearLayout? = null
 //    //cehu侧滑界面
 //     private var left: NavigationView? = null
+
+    /**
+     * local username
+     */
+    private val username: String by SpUtils(Constant.USERNAME_KEY, "")
+
     private var lastTime: Long = 0
     private var currentIndex = 0
     /*拿到向下兼容的fragmentManager*/
@@ -138,6 +145,7 @@ class HomeActivity : BaseActivity(){
                     SpUtils.clear()//退出登录
                     navigationViewUsername.text = getString(R.string.not_login)
                     text = getString(R.string.please_login)
+                    homeFragment?.refreshData()
 
                 }
             }
@@ -187,7 +195,12 @@ class HomeActivity : BaseActivity(){
 
     override fun onResume() {
         super.onResume()
-//        homeFragment?.refreshData()
+        // other activity login
+        if (isLogin && navigationViewUsername.text.toString() != username) {
+            navigationViewUsername.text = username
+            navigationViewLogout.text = getString(R.string.logout)
+            homeFragment?.refreshData()
+        }
     }
     /**
      * 退出按钮

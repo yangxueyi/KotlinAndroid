@@ -1,5 +1,6 @@
 package com.xueyi.yang.kotlinandroid.fragment.home.presenter
 
+import com.xueyi.yang.kotlinandroid.bean.BannerResponse
 import com.xueyi.yang.kotlinandroid.bean.HomeListResponse
 import com.xueyi.yang.kotlinandroid.fragment.home.contract.HomeFragmentContract
 import com.xueyi.yang.kotlinandroid.fragment.home.model.HomeFragmentModel
@@ -8,7 +9,9 @@ import com.xueyi.yang.kotlinandroid.fragment.home.model.HomeFragmentModel
  * Created by YangXueYi
  * Time : 2018/1/24.
  */
-class HomeFragmentPresenter(val homeFragmentView : HomeFragmentContract.FragmentView,val homeFragmentModel: HomeFragmentModel) :HomeFragmentContract.FragmentPresenter{
+class HomeFragmentPresenter(val homeFragmentView : HomeFragmentContract.FragmentView, private val homeFragmentModel: HomeFragmentModel) :HomeFragmentContract.FragmentPresenter{
+
+
     override fun showSuccess() {
     }
 
@@ -16,6 +19,20 @@ class HomeFragmentPresenter(val homeFragmentView : HomeFragmentContract.Fragment
     }
 
     override fun getBannerResult() {
+
+        homeFragmentModel.onGetBannerResponse(object : HomeFragmentContract.BannerCallback{
+            override fun getBannerSuccess(result: BannerResponse) {
+                homeFragmentView.getBannerSuccess(result)
+            }
+
+            override fun getBannerFailed(str: String) {
+                homeFragmentView.getBannerFailed(str)
+            }
+
+            override fun onNetworkError() {}
+            override fun onSuccess() {}
+            override fun onError() {}
+        })
     }
 
     override fun getListResult(page: Int) {
@@ -55,5 +72,32 @@ class HomeFragmentPresenter(val homeFragmentView : HomeFragmentContract.Fragment
             }
 
         },page)
+    }
+
+    override fun collectArcitle(id: Int, isAdd: Boolean) {
+        homeFragmentModel.onCollectArticle(object : HomeFragmentContract.CollectCallBack{
+            override fun onNetworkError() {
+            }
+
+            override fun onSuccess() {
+            }
+
+            override fun onError() {
+            }
+
+            override fun collectArticleFailed(str: String,isAdd: Boolean) {
+                homeFragmentView.collectArcitleFailed(str,isAdd)
+            }
+
+            override fun collectArticleSuccess(result: HomeListResponse,isAdd: Boolean) {
+                if (result.errorCode!=0){
+                    homeFragmentView.collectArcitleFailed(result.errorMsg, isAdd)
+                }else{
+                    homeFragmentView.collectArcitleSuccess(result,isAdd)
+                }
+            }
+
+
+        },id,isAdd)
     }
 }
