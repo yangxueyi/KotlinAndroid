@@ -77,7 +77,7 @@ open class HomeFragmentModel : HomeFragmentContract.FragmentModel{
                 }
             }catch (t: Throwable){
                 t.printStackTrace()
-                Log.e("HomeFragmentModel","t.toString() = $t.toString()")
+//                Log.e("HomeFragmentModel","t.toString() = $t.toString()")
                 listCallback.getHomeListFailed(t.toString())
                 return@async
             }
