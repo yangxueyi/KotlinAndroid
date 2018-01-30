@@ -17,11 +17,32 @@ ext{
             //android-support
             "support-v4"            : "com.android.support:support-v4:${dependVersion.support}",
             "appcompat-v7"          : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "desgin"                :"com.android.support:design:${dependVersion.support}",
 
             //rxjava
             "rxjava"                : "io.reactivex.rxjava2:rxjava:2.0.6",
             "rxandroid"             : "io.reactivex.rxjava2:rxandroid:2.0.1",
             "rxkotlin"              : "io.reactivex.rxjava2:rxkotlin:2.1.0",
+
+            "adapterHelper"         :"com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34",
+
+            "barlibrary"            :"com.gyf.barlibrary:barlibrary:2.3.0",
+
+            /*图片的显示与修剪*/
+            "glide_transformations" :"jp.wasabeef:glide-transformations:3.0.1",//设置图片为圆形
+            "glide"                 :"com.github.bumptech.glide:glide:4.0.0",
+            "pictureSelector"       :"com.github.LuckSiege.PictureSelector:picture_library:v2.1.7",//图片的选择
+
+
+            /*http*/
+            "retrofit2"             :"com.squareup.retrofit2:retrofit:2.1.0",
+            "retrofit_gson"         :"com.squareup.retrofit2:converter-gson:2.1.0",
+            "okhttp3"               :"com.squareup.okhttp3:logging-interceptor:3.6.0",
+            "coroutines"            :"com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0",
+
+            /*协程:解决异步问题*/
+            "coroutines-android"    :"org.jetbrains.kotlinx:kotlinx-coroutines-android:0.20"
+
     ]
 
 }
