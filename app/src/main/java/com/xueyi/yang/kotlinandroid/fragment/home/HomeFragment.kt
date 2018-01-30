@@ -296,6 +296,7 @@ class HomeFragment : Fragment(),HomeFragmentContract.FragmentView {
                             putExtra(Constant.CONTENT_TARGET_KEY,true)
                             putExtra(Constant.CONTENT_TITLE_KEY,datas.title)
                             putExtra(Constant.CONTENT_CID_KEY,datas.chapterId)
+                            startActivity(this)
                         }
 
                     }
