@@ -8,7 +8,7 @@ import java.io.Serializable
  */
 data class TreeListResponse (
 		val errorCode: Int, //0
-		val errorMsg: Any, //null
+		val errorMsg: String?, //null
 		val data: List<Data>) {
     data class Data(
             val id: Int, //150

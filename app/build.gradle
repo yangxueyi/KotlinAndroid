@@ -39,6 +39,9 @@ dependencies {
     implementation rootProject.ext.dependencies["barlibrary"]
     implementation rootProject.ext.dependencies["glide"]
 
+
+    implementation rootProject.ext.dependencies["flowlayout"]
+
     implementation rootProject.ext.dependencies["pictureSelector"]
     implementation rootProject.ext.dependencies["glide_transformations"]
     implementation rootProject.ext.dependencies["retrofit2"]

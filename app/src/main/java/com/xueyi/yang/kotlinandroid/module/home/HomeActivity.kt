@@ -7,6 +7,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout.DrawerListener
 import android.support.v7.app.ActionBarDrawerToggle
@@ -25,10 +27,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.entity.LocalMedia
-import com.xueyi.yang.kotlinandroid.R.id.tool_bar
 import com.xueyi.yang.kotlinandroid.constant.Constant
 import com.xueyi.yang.kotlinandroid.fragment.home.HomeFragment
+import com.xueyi.yang.kotlinandroid.fragment.hot.HotFragment
+import com.xueyi.yang.kotlinandroid.fragment.type.TypeFragment
 import com.xueyi.yang.kotlinandroid.module.login.LoginActivity
+import com.xueyi.yang.kotlinandroid.module.search.SearchActivity
 import com.xueyi.yang.kotlinandroid.utils.PictureSelectorUtils
 import com.xueyi.yang.kotlinandroid.utils.SpUtils
 import com.xueyi.yang.kotlinandroid.utils.ToastUtils
@@ -59,6 +63,9 @@ class HomeActivity : BaseActivity(){
     }
 
     private var homeFragment: HomeFragment? = null
+    private var typeFragment: TypeFragment? = null
+    private var hotFragment: HotFragment? = null
+
     private var isDrawer :Boolean = false
 
     //修剪后的图片的保存地址
@@ -106,6 +113,13 @@ class HomeActivity : BaseActivity(){
             title = getString(R.string.app_name)//标题
             setSupportActionBar(this)//给toolbar设置监听，需要将toolbar设置支持actionbar
         }
+        //设置底部导航栏
+        bottom_navigation.run {
+            setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+            //初始化是默认显示homeFragment
+            selectedItemId = R.id.navigation_home
+        }
+
         //drawerLayout的基本设置
         drawer_Layout.run {
             //关联drawerLayout与tool_bar
@@ -152,29 +166,46 @@ class HomeActivity : BaseActivity(){
             }
         }
 
-
-
 //        navigation_view.run {
 //            setNavigationItemSelectedListener(onDrawerNavigationItemSelectedListener)
 //        }
 
-        //设置底部导航栏
-        bottom_navigation.run {
-            setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-            //初始化是默认显示homeFragment
-            selectedItemId = R.id.navigation_home
-        }
+
 
     }
 
 
     override fun initAdapter() {
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)//加载menu文件到布局
         return super.onCreateOptionsMenu(menu)
+    }
+
+    /*设置toolbar上面的菜单*/
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.menuHot ->{
+                if (currentIndex == R.id.menuHot){
+//                    hotFragment
+                }
+                setFragment(R.id.menuHot)
+                currentIndex = R.id.menuHot
+                return true
+            }
+            R.id.menuSearch ->{
+                Intent(this,SearchActivity::class.java).run {
+                    startActivity(this)
+                    return true
+                }
+            }
+        }
+
+
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onShowToast(str: String) {
@@ -248,6 +279,18 @@ class HomeActivity : BaseActivity(){
     }
 
     /**
+     * 防止重叠
+     */
+    override fun onAttachFragment(fragment: Fragment) {
+        super.onAttachFragment(fragment)
+        when (fragment) {
+            is HomeFragment -> homeFragment ?: let { homeFragment = fragment }
+            is TypeFragment -> typeFragment ?: let { typeFragment = fragment }
+            is HotFragment -> hotFragment ?: let { hotFragment = fragment }
+        }
+    }
+
+    /**
      * 显示对应Fragment
      */
     private fun setFragment(index: Int) {
@@ -257,12 +300,27 @@ class HomeActivity : BaseActivity(){
         }
         fragmentManager.beginTransaction().apply {
             //创建fragment
-            homeFragment?:let {
+            homeFragment?:let {//“?:let”homeFragment为空，创建fragment
                 HomeFragment().let {
                     homeFragment = it
                     add(R.id.content,it)
                 }
             }
+            typeFragment?:let {
+                TypeFragment().let {
+                    typeFragment = it
+                    add(R.id.content,it)
+                }
+            }
+            hotFragment?:let {
+                HotFragment().let {
+                    hotFragment = it
+                    add(R.id.content,it)
+                }
+            }
+
+            //先将创建好的fragment隐藏,
+            hideFragment(this)
             //显示fragment
             when (index) {
                 R.id.navigation_home -> {
@@ -272,14 +330,34 @@ class HomeActivity : BaseActivity(){
                     }
                 }
                 R.id.navigation_knowledge ->{
-                    tool_bar.title = getString(R.string.title_dashboard)
-                    homeFragment?.let {
+                    tool_bar.title = getString(R.string.title_knowledge)
+                    typeFragment?.let {
+                        this.show(it)
+                    }
+                }
+                R.id.menuHot ->{
+                    tool_bar.title = getString(R.string.hot_title)
+                    hotFragment?.let {
                         this.show(it)
                     }
                 }
             }
         }.commit()
+    }
 
+    /**
+     * 隐藏所有fragment
+     */
+    private fun hideFragment(transaction: FragmentTransaction) {
+        homeFragment?.let {//HomeFragment不为空，执行lambda；为空，就什么都不执行
+            transaction.hide(it)
+        }
+        typeFragment?.let {
+            transaction.hide(it)
+        }
+        hotFragment?.let {
+            transaction.hide(it)
+        }
     }
 
     private fun loadImage(){
@@ -303,7 +381,7 @@ class HomeActivity : BaseActivity(){
             }
             R.id.navigation_knowledge ->{
                 if (currentIndex == R.id.navigation_knowledge){
-                    homeFragment?.smoothScrollToPosition()
+                    typeFragment?.smoothScrollToPosition()
                 }
                 currentIndex = R.id.navigation_knowledge
                 true

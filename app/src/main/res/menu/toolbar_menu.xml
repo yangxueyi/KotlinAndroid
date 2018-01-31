@@ -2,7 +2,7 @@
 <!--icon="@drawable/ic_action_hot"   :矢量图-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/hot"
+    <item android:id="@+id/menuHot"
             android:title="@string/hot_title"
         android:icon="@drawable/ic_action_hot"
         app:showAsAction="ifRoom"

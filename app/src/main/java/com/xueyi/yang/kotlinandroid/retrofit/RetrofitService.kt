@@ -1,10 +1,7 @@
 package com.xueyi.yang.kotlinandroid.retrofit
 
 import android.support.annotation.IdRes
-import com.xueyi.yang.kotlinandroid.bean.ArticleListResponse
-import com.xueyi.yang.kotlinandroid.bean.BannerResponse
-import com.xueyi.yang.kotlinandroid.bean.HomeListResponse
-import com.xueyi.yang.kotlinandroid.bean.TreeListResponse
+import com.xueyi.yang.kotlinandroid.bean.*
 import kotlinx.coroutines.experimental.Deferred
 import retrofit2.http.*
 
@@ -41,6 +38,19 @@ interface RetrofitService {
     @GET("/article/list/{page}/json")
     fun getArticleList(@Path("page")page: Int,
                         @Query("cid")cid:Int):Deferred<ArticleListResponse>
+
+    /*
+     * 大家都在搜
+     * http://www.wanandroid.com/hotkey/json
+     */
+    @GET("/hotkey/json")
+    fun getHotList() : Deferred<HotKeyResponse>
+
+    /*
+     * 常用网站
+     * http://www.wanandroid.com/friend/json
+     */
+    fun getFriendList() : Deferred<FriendListResponse>
 
 
     /*

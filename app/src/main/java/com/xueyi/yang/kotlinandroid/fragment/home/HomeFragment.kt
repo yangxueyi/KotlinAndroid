@@ -27,7 +27,7 @@ import com.xueyi.yang.kotlinandroid.fragment.home.presenter.HomeFragmentPresente
 import com.xueyi.yang.kotlinandroid.inflater
 import com.xueyi.yang.kotlinandroid.module.homeContent.HomeContentActivity
 import com.xueyi.yang.kotlinandroid.module.login.LoginActivity
-import com.xueyi.yang.kotlinandroid.module.type.TypeContentActivity
+import com.xueyi.yang.kotlinandroid.module.typeContract.TypeContentActivity
 import com.xueyi.yang.kotlinandroid.utils.SpUtils
 import com.xueyi.yang.kotlinandroid.utils.ToastUtils
 import com.xueyi.yang.kotlinandroid.view.HorizontalRecyclerView
@@ -93,7 +93,7 @@ class HomeFragment : Fragment(),HomeFragmentContract.FragmentView {
         /*
         * 如果HomeFragment的添加数据失败，那么就不显示banner轮播图
         * 所以添加了一个let函数
-        * let:不为空的时候才执行lambda
+        * let:mainView为空的时候才执行lambda
         */
         mainView?:let {
             mainView = inflater?.inflate(R.layout.fragment_home,container,false)
@@ -292,7 +292,7 @@ class HomeFragment : Fragment(),HomeFragmentContract.FragmentView {
                             return@OnItemChildClickListener
                         }*/
 
-                        Intent(activity,TypeContentActivity::class.java).run {
+                        Intent(activity, TypeContentActivity::class.java).run {
                             putExtra(Constant.CONTENT_TARGET_KEY,true)
                             putExtra(Constant.CONTENT_TITLE_KEY,datas.title)
                             putExtra(Constant.CONTENT_CID_KEY,datas.chapterId)

@@ -54,6 +54,11 @@ object Constant {
      * target key
      */
     const val CONTENT_TARGET_KEY = "target"
+    /**
+     * childrenData key
+     */
+    const val CONTENT_CHILDREN_DATA_KEY = "childrenData"
+
     /*
     * 登录账号
     */

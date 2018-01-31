@@ -5,8 +5,11 @@
     <dimen name="dot_width">10dp</dimen>
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_6">4dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
     <dimen name="dot_margin">15dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="login_padding">50dp</dimen>
+    <dimen name="login_top_padding">20dp</dimen>
 
 </resources>
