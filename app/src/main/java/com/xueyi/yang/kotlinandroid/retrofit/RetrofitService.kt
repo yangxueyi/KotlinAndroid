@@ -50,6 +50,7 @@ interface RetrofitService {
      * 常用网站
      * http://www.wanandroid.com/friend/json
      */
+    @GET("/friend/json")
     fun getFriendList() : Deferred<FriendListResponse>
 
 

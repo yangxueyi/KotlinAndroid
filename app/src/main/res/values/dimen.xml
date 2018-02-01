@@ -4,12 +4,19 @@
     <dimen name="image">24dp</dimen>
     <dimen name="dot_width">10dp</dimen>
     <dimen name="dp_4">4dp</dimen>
-    <dimen name="dp_6">4dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
     <dimen name="dp_30">30dp</dimen>
     <dimen name="dot_margin">15dp</dimen>
+
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="login_padding">50dp</dimen>
     <dimen name="login_top_padding">20dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+
+    <dimen name="text_margin">16dp</dimen>
 
 </resources>

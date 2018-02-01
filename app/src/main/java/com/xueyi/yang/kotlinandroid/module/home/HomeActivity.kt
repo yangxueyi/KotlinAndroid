@@ -31,6 +31,7 @@ import com.xueyi.yang.kotlinandroid.constant.Constant
 import com.xueyi.yang.kotlinandroid.fragment.home.HomeFragment
 import com.xueyi.yang.kotlinandroid.fragment.hot.HotFragment
 import com.xueyi.yang.kotlinandroid.fragment.type.TypeFragment
+import com.xueyi.yang.kotlinandroid.module.about.AboutActivity
 import com.xueyi.yang.kotlinandroid.module.login.LoginActivity
 import com.xueyi.yang.kotlinandroid.module.search.SearchActivity
 import com.xueyi.yang.kotlinandroid.utils.PictureSelectorUtils
@@ -45,11 +46,6 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation
  */
 class HomeActivity : BaseActivity(){
 
-    //主界面
-//    private var right: LinearLayout? = null
-//    //cehu侧滑界面
-//     private var left: NavigationView? = null
-
     /**
      * local username
      */
@@ -57,11 +53,12 @@ class HomeActivity : BaseActivity(){
 
     private var lastTime: Long = 0
     private var currentIndex = 0
+
+
     /*拿到向下兼容的fragmentManager*/
     private val fragmentManager by lazy {
         supportFragmentManager
     }
-
     private var homeFragment: HomeFragment? = null
     private var typeFragment: TypeFragment? = null
     private var hotFragment: HotFragment? = null
@@ -166,9 +163,10 @@ class HomeActivity : BaseActivity(){
             }
         }
 
-//        navigation_view.run {
-//            setNavigationItemSelectedListener(onDrawerNavigationItemSelectedListener)
-//        }
+        /*侧滑菜单上面的menu*/
+        navigation_view.run {
+            setNavigationItemSelectedListener(onDrawerNavigationItemSelectedListener)
+        }
 
 
 
@@ -189,7 +187,7 @@ class HomeActivity : BaseActivity(){
         when(item.itemId){
             R.id.menuHot ->{
                 if (currentIndex == R.id.menuHot){
-//                    hotFragment
+                    hotFragment?.refreshData()
                 }
                 setFragment(R.id.menuHot)
                 currentIndex = R.id.menuHot
@@ -202,9 +200,6 @@ class HomeActivity : BaseActivity(){
                 }
             }
         }
-
-
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -254,9 +249,6 @@ class HomeActivity : BaseActivity(){
             lastTime = millis//将点击时间赋值给开始时间
         }
     }
-
-
-
     /*实现DrawerListener，修改右边布局*/
     private val DrawerListener = object :DrawerListener{
         override fun onDrawerSlide(drawerView: View?, slideOffset: Float) {
@@ -390,6 +382,34 @@ class HomeActivity : BaseActivity(){
                 false
             }
         }
+    }
+
+    private val onDrawerNavigationItemSelectedListener = NavigationView.OnNavigationItemSelectedListener{
+        item ->
+        when(item.itemId){
+            R.id.my_like ->{
+                if(!isLogin){//判断如果没登录，先登录
+                    Intent(this,LoginActivity::class.java).run {
+                        startActivityForResult(this, Constant.MAIN_REQUEST_CODE)
+                    }
+                    onShowToast(getString(R.string.login_please_login))
+                    return@OnNavigationItemSelectedListener true
+                }
+                //跳转到收藏界面
+                Intent(this,SearchActivity::class.java).run {
+                    putExtra(Constant.SEARCH_KEY,false)
+                    startActivityForResult(this, Constant.MAIN_LIKE_REQUEST_CODE)
+                }
+            }
+            R.id.about_us ->{
+                Intent(this,AboutActivity::class.java).run {
+                    startActivity(this)
+                }
+            }
+        }
+
+        drawer_Layout.closeDrawer(GravityCompat.START)
+        true
     }
 
 

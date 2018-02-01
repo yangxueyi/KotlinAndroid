@@ -16,7 +16,7 @@ import com.xueyi.yang.kotlinandroid.constant.Constant
 import com.xueyi.yang.kotlinandroid.fragment.type.contract.TypeFragmentContract
 import com.xueyi.yang.kotlinandroid.fragment.type.model.TypeFragmentModel
 import com.xueyi.yang.kotlinandroid.fragment.type.presenter.TypeFragmentPresenter
-import com.xueyi.yang.kotlinandroid.module.typeContract.TypeContentActivity
+import com.xueyi.yang.kotlinandroid.module.typeContent.TypeContentActivity
 import com.xueyi.yang.kotlinandroid.utils.ToastUtils
 import kotlinx.android.synthetic.main.fragment_type.*
 

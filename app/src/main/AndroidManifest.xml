@@ -48,10 +48,15 @@
             android:theme="@style/AppTheme"/>
         <activity android:name=".module.homeContent.HomeContentActivity"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".module.typeContract.TypeContentActivity"
+        <activity android:name=".module.typeContent.TypeContentActivity"
             android:theme="@style/AppTheme"/>
         <activity android:name=".module.search.SearchActivity"
             android:theme="@style/AppTheme"/>
+        <activity android:name=".module.commonContent.CommonContentActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".module.about.AboutActivity"
+            android:theme="@style/AppTheme"
+            />
 
 
 

@@ -6,6 +6,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black">#FF000000</color>
     <color name="gray">#33000000</color>
+    <color name="gray_1">#22000000</color>
     <color name="white">#ffffffff</color>
     <color name="item_bg">#FFFFFF</color>
     <color name="while_most_color">#e4e4e4</color>

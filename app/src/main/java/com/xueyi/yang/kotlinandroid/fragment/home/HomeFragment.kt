@@ -27,7 +27,7 @@ import com.xueyi.yang.kotlinandroid.fragment.home.presenter.HomeFragmentPresente
 import com.xueyi.yang.kotlinandroid.inflater
 import com.xueyi.yang.kotlinandroid.module.homeContent.HomeContentActivity
 import com.xueyi.yang.kotlinandroid.module.login.LoginActivity
-import com.xueyi.yang.kotlinandroid.module.typeContract.TypeContentActivity
+import com.xueyi.yang.kotlinandroid.module.typeContent.TypeContentActivity
 import com.xueyi.yang.kotlinandroid.utils.SpUtils
 import com.xueyi.yang.kotlinandroid.utils.ToastUtils
 import com.xueyi.yang.kotlinandroid.view.HorizontalRecyclerView

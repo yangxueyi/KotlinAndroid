@@ -1,4 +1,4 @@
-package com.xueyi.yang.kotlinandroid.module.typeContract
+package com.xueyi.yang.kotlinandroid.module.typeContent
 
 import android.os.Bundle
 import com.xueyi.yang.kotlinandroid.R

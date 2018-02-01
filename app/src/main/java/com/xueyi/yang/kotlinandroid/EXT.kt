@@ -1,11 +1,13 @@
 package com.xueyi.yang.kotlinandroid
 
 import android.content.Context
+import android.support.annotation.IntegerRes
 import android.support.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.View
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.cancelAndJoin
+import java.util.*
 
 /**
  * Created by YangXueYi
@@ -27,6 +29,13 @@ fun Deferred<Any>?.cancelByActive() = this?.run {
         cancel()
     }
 }
+
+/**
+ * 随机获取颜色
+ * toHexString:返回16位的无符号整数
+ * 16777215 是 FFFFFF
+ */
+fun getRandomColor() : String =  "#${Integer.toHexString((Math.random() * 16777215).toInt())}"
 
 
 fun Context.inflater(@LayoutRes resource: Int): View = LayoutInflater.from(this).inflate(resource, null)

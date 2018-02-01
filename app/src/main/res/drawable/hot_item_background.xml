@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!--描边：创建一个矩形-->
+    <stroke android:width="1px"
+        android:color="@color/gray_1"/>
+    <!--将矩形四个角添加圆边-->
+    <corners android:radius="@dimen/dp_40"/>
+    <!-- 填充的颜色 -->
+    <solid android:color="@color/white"/>
+
+
+</shape>

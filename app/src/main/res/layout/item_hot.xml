@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_hot_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_5"
+    android:background="@drawable/hot_item_background"
+    android:textSize="18sp"
+    android:padding="@dimen/dp_10"
+    android:textColor="@android:color/primary_text_light"
+    android:gravity="center"
+    tools:text="常用网址"
+   />

@@ -58,6 +58,10 @@ object Constant {
      * childrenData key
      */
     const val CONTENT_CHILDREN_DATA_KEY = "childrenData"
+    /**
+     * share key
+     */
+    const val SEARCH_KEY = "search"
 
     /*
     * 登录账号
@@ -75,5 +79,6 @@ object Constant {
     const val ANIM_TIME = 2000L
 
     const val MAIN_REQUEST_CODE = 100
+    const val MAIN_LIKE_REQUEST_CODE = 101
 
 }
