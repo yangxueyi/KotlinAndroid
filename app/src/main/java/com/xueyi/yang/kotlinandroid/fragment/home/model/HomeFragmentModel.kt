@@ -30,7 +30,7 @@ open class HomeFragmentModel : HomeFragmentContract.FragmentModel{
     /*banner数据获取*/
     override fun onGetBannerResponse(bannerCallback: HomeFragmentContract.BannerCallback) {
         /*async:异步操作
-       * async { …… } 启动一个协程
+       * async { …… } 创建一个协程
        * UI:在UI线程启动一个协程
        **/
         async(UI) {
@@ -56,7 +56,7 @@ open class HomeFragmentModel : HomeFragmentContract.FragmentModel{
     /*homeFragment数据获取*/
     override fun onGetListResponse(listCallback: HomeFragmentContract.ListCallback,page: Int) {
         /*async:异步操作
-        * async { …… } 启动一个协程
+        * async { …… } 创建一个协程
         * UI:在UI线程启动一个协程
         **/
         async(UI) {

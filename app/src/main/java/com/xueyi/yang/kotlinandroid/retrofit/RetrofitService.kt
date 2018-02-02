@@ -39,6 +39,18 @@ interface RetrofitService {
     fun getArticleList(@Path("page")page: Int,
                         @Query("cid")cid:Int):Deferred<ArticleListResponse>
 
+
+    /*
+    *注册
+    */
+    
+
+    /*
+    *登录
+    */
+
+
+
     /*
      * 大家都在搜
      * http://www.wanandroid.com/hotkey/json

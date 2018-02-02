@@ -1,6 +1,5 @@
 package com.xueyi.yang.kotlinandroid.module.about
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
@@ -10,6 +9,7 @@ import com.xueyi.yang.kotlinandroid.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_about.*
 import kotlinx.android.synthetic.main.content_about.*
 
+
 /**
  * Created by YangXueYi
  * Time : 2018/2/1.
@@ -18,14 +18,13 @@ class AboutActivity :BaseActivity() {
 
     /*初始化toolbar*/
     override fun initImmersionBar() {
-
         super.initImmersionBar()
         immersionBar.titleBar(R.id.tool_bar).init()
     }
     override fun initLayout(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_about)
     }
-
+    @Suppress("DEPRECATION")
     override fun init() {
         tool_bar.run {
             title = getString(R.string.my_about)

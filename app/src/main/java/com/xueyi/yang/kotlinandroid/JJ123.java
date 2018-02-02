@@ -10,6 +10,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +32,8 @@ public class JJ123 extends AppCompatActivity{
         int [] ooo = new int[2];
         // 引导页图片资源
          final int[] pics = { 1,2,3};
+
+        TelephonyManager tp = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 
     }
 
