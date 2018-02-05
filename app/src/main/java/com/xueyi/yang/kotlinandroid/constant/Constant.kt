@@ -62,10 +62,15 @@ object Constant {
      * share key
      */
     const val SEARCH_KEY = "search"
+    /**
+     *是否喜欢
+     */
+    const val LIKE_KEY = "isLike"
 
     /*
     * 登录账号
     */
+
     const val LOGIN_KEY = "login"
     const val USERNAME_KEY = "username"
     const val PASSWORD_KEY = "password"

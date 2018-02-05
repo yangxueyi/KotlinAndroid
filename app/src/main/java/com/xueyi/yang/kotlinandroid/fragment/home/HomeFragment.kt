@@ -45,6 +45,8 @@ class HomeFragment : Fragment(),HomeFragmentContract.FragmentView {
     companion object {
         private const val BANNER_TIME = 3000L
     }
+
+    private var isLike : Boolean by SpUtils(Constant.LIKE_KEY,false)
     /*mainView*/
     private var mainView : View? = null
     /*banner布局，使用水平recyclerview*/
@@ -141,6 +143,7 @@ class HomeFragment : Fragment(),HomeFragmentContract.FragmentView {
         homeFragmentPresenter.getBannerResult()
         //拿到recycle_view内容
         homeFragmentPresenter.getListResult()
+
 
     }
 
@@ -302,17 +305,16 @@ class HomeFragment : Fragment(),HomeFragmentContract.FragmentView {
                     }
                     R.id.iv_home_item_like ->{
                         if(isLogin){//已经登录
-                            val collect = datas.collect //判断是否已经收藏
-                            datas.collect = !collect//如果已经收藏，就将Boolean值设置为false，反之一样
-                            homeAdapter.setData(position, datas)
-                            homeFragmentPresenter.collectArcitle(datas.id,collect)
+                                val collect = datas.collect //判断是否已经收藏
+                                datas.collect = !collect//如果已经收藏，就将Boolean值设置为false，反之一样
+                                homeAdapter.setData(position, datas)
+                                homeFragmentPresenter.collectArcitle(datas.id, !collect)
                         }else{//未登录
                             //跳转到登录界面
                             Intent(activity,LoginActivity::class.java).run {
                                 startActivityForResult(this,Constant.MAIN_REQUEST_CODE)
                             }
                             onShowToast(getString(R.string.not_login))
-
                         }
                     }
                 }

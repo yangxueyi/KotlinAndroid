@@ -57,6 +57,9 @@
         <activity android:name=".module.about.AboutActivity"
             android:theme="@style/AppTheme"
             />
+        <activity android:name=".module.collection.CollectionActivity"
+            android:theme="@style/AppTheme"
+            />
 
 
 

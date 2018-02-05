@@ -32,6 +32,7 @@ import com.xueyi.yang.kotlinandroid.fragment.home.HomeFragment
 import com.xueyi.yang.kotlinandroid.fragment.hot.HotFragment
 import com.xueyi.yang.kotlinandroid.fragment.type.TypeFragment
 import com.xueyi.yang.kotlinandroid.module.about.AboutActivity
+import com.xueyi.yang.kotlinandroid.module.collection.CollectionActivity
 import com.xueyi.yang.kotlinandroid.module.login.LoginActivity
 import com.xueyi.yang.kotlinandroid.module.search.SearchActivity
 import com.xueyi.yang.kotlinandroid.utils.PictureSelectorUtils
@@ -396,7 +397,7 @@ class HomeActivity : BaseActivity(){
                     return@OnNavigationItemSelectedListener true
                 }
                 //跳转到收藏界面
-                Intent(this,SearchActivity::class.java).run {
+                Intent(this, CollectionActivity::class.java).run {
                     putExtra(Constant.SEARCH_KEY,false)
                     startActivityForResult(this, Constant.MAIN_LIKE_REQUEST_CODE)
                 }

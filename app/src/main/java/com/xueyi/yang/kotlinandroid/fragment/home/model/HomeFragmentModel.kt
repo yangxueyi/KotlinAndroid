@@ -23,7 +23,6 @@ open class HomeFragmentModel : HomeFragmentContract.FragmentModel{
     private var homeFragmentListAsync : Deferred<Any>? = null
     /**获取banner数据的异步：async*/
     private var bannerListAsync : Deferred<Any>? = null
-
     /**获取收藏数据的异步：async*/
     private var collectArticleAsync : Deferred<Any>? = null
 

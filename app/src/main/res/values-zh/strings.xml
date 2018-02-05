@@ -24,7 +24,12 @@
     <string name="userName">用户名</string>
     <string name="password">密码</string>
     <string name="login_register">注册</string>
-
+    <string name="login_success">登录成功</string>
+    <string name="register_success">注册成功</string>
+    <string name="password_not_empty">密码不能为空</string>
+    <string name="password_length_short">密码长度不能小于6位</string>
+    <string name="username_not_empty">用户名不能为空</string>
+    <string name="action_sign_in_short">Sign in</string>
 
     <string name="bookmark_success">收藏成功</string>
     <string name="bookmark_failed">收藏失败：%1$s</string>
@@ -33,6 +38,7 @@
 
     <string name="hot_key">大家都在搜</string>
     <string name="common_use">常用网站</string>
+    <string name="loading">正在加载中…</string>
 
     <!-- navigation -->
     <string name="my_bookmark">我的书签</string>
@@ -42,11 +48,16 @@
     <string name="get_data_zero">获取数据为空</string>
 
     <string name="hot_title">Hot</string>
+
     <string name="search_title">搜索</string>
     <string name="writer_name">作者</string>
     <string name="start">android kotlin</string>
 
     <string name="my_about">关于我们</string>
+
+    <string name="web_share">分享</string>
+    <string name="web_collection">收藏</string>
+    <string name="web_chrome">用系统浏览器打开</string>
 
 
     <string name="double_click_exit">再按一次退出</string>

@@ -42,13 +42,25 @@ interface RetrofitService {
 
     /*
     *注册
+    *
     */
-    
+    @POST("/user/register")
+    @FormUrlEncoded
+    fun getRegisterList(
+            @Field("username") username: String,
+            @Field("password") password: String,
+            @Field("repassword") repassowrd: String
+    ): Deferred<LoginResponse>
 
     /*
     *登录
     */
-
+    @FormUrlEncoded
+    @POST("/user/login")
+    fun getLoginList(
+            @Field("username") username: String,
+            @Field("password") password: String
+    ):Deferred<LoginResponse>
 
 
     /*
@@ -64,7 +76,6 @@ interface RetrofitService {
      */
     @GET("/friend/json")
     fun getFriendList() : Deferred<FriendListResponse>
-
 
     /*
     *添加收藏文章
@@ -84,4 +95,11 @@ interface RetrofitService {
             @Path("id") id: Int,
             @Field("originId") originId: Int = -1
     ): Deferred<HomeListResponse>
+
+    /*
+    *获取自己的收藏列表
+    * http://www.wanandroid.com/lg/collect/list/{page}/json
+    */
+    @GET("/lg/collect/list/{page}/json")
+    fun getLikeList(@Path("page")page : Int): Deferred<HomeListResponse>
 }

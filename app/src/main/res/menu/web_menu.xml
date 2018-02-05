@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/web_share"
+        android:title="@string/web_share"
+        android:icon="@drawable/ic_action_share"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/web_collection"
+        android:title="@string/web_collection"
+        android:icon="@drawable/ic_action_collection"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/web_chrome"
+        android:title="@string/web_chrome"
+        android:icon="@drawable/ic_action_chrome"
+        app:showAsAction="never"
+        />
+</menu>
