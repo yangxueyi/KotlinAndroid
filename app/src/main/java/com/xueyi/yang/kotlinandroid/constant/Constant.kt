@@ -75,6 +75,11 @@ object Constant {
     const val USERNAME_KEY = "username"
     const val PASSWORD_KEY = "password"
     /**
+     * share key
+     */
+    const val CONTENT_SHARE_TYPE = "text/plain"
+
+    /**
     * 缩放动画
     */
     const val SCALEX="scaleX"

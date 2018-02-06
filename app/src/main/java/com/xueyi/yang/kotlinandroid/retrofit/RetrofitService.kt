@@ -1,6 +1,5 @@
 package com.xueyi.yang.kotlinandroid.retrofit
 
-import android.support.annotation.IdRes
 import com.xueyi.yang.kotlinandroid.bean.*
 import kotlinx.coroutines.experimental.Deferred
 import retrofit2.http.*

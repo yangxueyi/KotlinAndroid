@@ -43,6 +43,7 @@ fun Deferred<Any>?.cancelByActive() = this?.run {
  */
 fun getRandomColor() : String =  "#${Integer.toHexString((Math.random() * 16777215).toInt())}"
 
+
 /*获取agentweb*/
 fun String.getAgentWeb(activity: Activity,web_Content: ViewGroup,
                        layoutParams: LinearLayout.LayoutParams,
@@ -54,7 +55,7 @@ fun String.getAgentWeb(activity: Activity,web_Content: ViewGroup,
             .setReceivedTitleCallback(toolbarTitleCallback)//设置 Web 页面的 title 回调
             .createAgentWeb()//创建
             .ready()//准备好了
-            .go(this)!!
+            .go(this)!! //this：前面的String
 
 
 

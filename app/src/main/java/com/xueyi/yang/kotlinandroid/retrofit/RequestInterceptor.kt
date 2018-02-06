@@ -1,6 +1,5 @@
 package com.xueyi.yang.kotlinandroid.retrofit
 
-import com.xueyi.yang.kotlinandroid.utils.CookieUtils
 import com.xueyi.yang.kotlinandroid.utils.SpUtils
 import okhttp3.Interceptor
 import okhttp3.Response

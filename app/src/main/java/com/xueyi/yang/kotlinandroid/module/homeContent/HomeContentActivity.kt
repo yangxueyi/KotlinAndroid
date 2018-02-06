@@ -1,5 +1,7 @@
 package com.xueyi.yang.kotlinandroid.module.homeContent
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -70,7 +72,32 @@ class HomeContentActivity : BaseActivity() {
         when(item.itemId){
             R.id.home ->{
                 finish()
+                return true
             }
+            R.id.web_share ->{
+                //调用Android自身的分享     这是分享text，还有分享图片、视频等等
+                Intent().run {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT,getString(R.string.share_article_url,getString(R.string.app_name), shareTitle, shareUrl))
+                    type = Constant.CONTENT_SHARE_TYPE
+                    startActivity(Intent.createChooser(this,getString(R.string.web_share)))
+                }
+                return true
+            }
+            R.id.web_collection ->{
+
+
+                return true
+            }
+            R.id.web_chrome ->{
+                Intent().run {
+                    action = Intent.ACTION_VIEW
+                    data = Uri.parse(shareUrl)
+                    startActivity(this)
+                }
+                return true
+            }
+
         }
 
         return super.onOptionsItemSelected(item)
@@ -89,6 +116,4 @@ class HomeContentActivity : BaseActivity() {
             tool_bar.title = it
         }
     }
-
-
 }

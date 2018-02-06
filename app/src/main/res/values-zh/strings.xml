@@ -59,6 +59,8 @@
     <string name="web_collection">收藏</string>
     <string name="web_chrome">用系统浏览器打开</string>
 
+    <string name="share_article_url">%1$s分享【%2$s】：%3$s</string>
+
 
     <string name="double_click_exit">再按一次退出</string>
 

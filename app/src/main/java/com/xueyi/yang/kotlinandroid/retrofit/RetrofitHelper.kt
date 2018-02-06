@@ -2,7 +2,6 @@ package com.xueyi.yang.kotlinandroid.retrofit
 
 import android.util.Log
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
-import com.xueyi.yang.kotlinandroid.BuildConfig
 import com.xueyi.yang.kotlinandroid.constant.Constant
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

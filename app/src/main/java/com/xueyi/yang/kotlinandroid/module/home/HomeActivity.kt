@@ -168,9 +168,6 @@ class HomeActivity : BaseActivity(){
         navigation_view.run {
             setNavigationItemSelectedListener(onDrawerNavigationItemSelectedListener)
         }
-
-
-
     }
 
 
